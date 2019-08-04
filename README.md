@@ -1,6 +1,6 @@
-# 轮子 - 一个 Vue UI 组件
+# 框架 - 一个 Vue UI 组件
 
-author： li_shuai
+** author： Herbert Lee **
 
 ## 安装
 
