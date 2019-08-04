@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ls506507881/Li-vue-wheels/issues"
   },
-  "homepage": "https://github.com/ls506507881/Li-vue-wheels#readme"
+  "homepage": "https://github.com/ls506507881/Li-vue-wheels#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
