@@ -1,6 +1,6 @@
 # 框架 - 一个 Vue UI 组件
 
-**author： Herbert Lee**
+**Author： Herbert Lee**
 
 ## 安装
 
