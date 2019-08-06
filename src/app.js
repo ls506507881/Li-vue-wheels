@@ -16,6 +16,9 @@ new Vue({
 })
 
 import chai from 'chai'
+import spies from 'chai-spies'
+
+chai.use(spies)  // 让chai使用这个间谍
 
 const expect = chai.expect
 // 单元测试
@@ -90,7 +93,7 @@ const expect = chai.expect
 }
 // 检测click
 {
-    // 怎么期待click函数被执行，使用mock
+    // 怎么期待click函数被执行，使用函数的mock
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
         propsData: {
@@ -98,12 +101,15 @@ const expect = chai.expect
         }
     })
     vm.$mount()
-    vm.$on('click',function(){
-        // console.log(1)
-        expect(1).to.eq(1)  //随便写一句永远成立的话，但是这种测试方法是错误的
-    })
+    let spy = chai.spy(function(){})
+    vm.$on('click',spy)  // 如果vm的click事件触发了，就执行这个间谍
+    // vm.$on('click',function(){
+    //     // console.log(1)
+    //     expect(1).to.eq(1)  //随便写一句永远成立的话，但是这种测试方法是错误的
+    // })
     // console.log(gButton.$el)
     // 期望这个函数被执行
     let button = vm.$el
     button.click()
+    expect(spy).to.have.been.called()  //期待间谍have.been.called 被调用过
 }
