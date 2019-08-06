@@ -22,7 +22,6 @@ export default {
         type: String,
         default: 'left',
         validator(value){  // 属性检查器，如果没有这个值，就会报错
-          console.log(value)
           // if(value !== 'left' && value !== 'right'){
           //   return false
           // }else{
