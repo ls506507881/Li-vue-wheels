@@ -23,6 +23,7 @@ chai.use(spies)  // 让chai使用这个间谍
 const expect = chai.expect
 // 单元测试
 {
+    // 测试按钮含有 icon
     // console.log(Button) // 对象没法通过对象实例化一个东西
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
@@ -31,17 +32,19 @@ const expect = chai.expect
         }
     })  //这个button 就是button实例
     // button.$mount()
-    vm.$mount('#test')  // 通过js把按钮写到页面
+    vm.$mount('#test')  // 通过js把按钮写到页面,把vm挂在到内存里面
 
     // 测试
-    let useElement = vm.$el.querySelector('use')
+    let useElement = vm.$el.querySelector('use')  // 去vm找有没有叫use的标签
     // console.log(useElement)
-    expect(useElement.getAttribute('xlink:href')).to.eq('#i-settings')  // 期待href = #i-settings
+    let href = useElement.getAttribute('xlink:href')
+    expect(href).to.eq('#i-settings')  // 期待href = #i-settings;判断use的href必须等于i-settings
     // 正确就不报错，不正确就报错
     vm.$el.remove()  //button元素删掉
     vm.$destroy()  //button对象删掉
 }
 {
+    // 如果传入一个loading，会显示href=i-loading的icon
     const Constructor = Vue.extend(Button)
     const vm = new Constructor({
         propsData:{

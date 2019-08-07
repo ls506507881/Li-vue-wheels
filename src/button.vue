@@ -10,28 +10,32 @@
 </template>
 
 <script >
+import Icon from './icon'
 export default {
-    // props: ['icon','iconPosition']  // left right
-    props: {
-      icon: {},
-      loading:{
-        type: Boolean,
-        default: false
-      },
-      iconPosition:{
-        type: String,
-        default: 'left',
-        validator(value){  // 属性检查器，如果没有这个值，就会报错
-          // if(value !== 'left' && value !== 'right'){
-          //   return false
-          // }else{
-          //   return true
-          // }
-          // 简化代码
-          return value === 'left' || value === 'right'
-        }
+  components:{
+    'g-icon': Icon
+  },
+  // props: ['icon','iconPosition']  // left right
+  props: {
+    icon: {},
+    loading:{
+      type: Boolean,
+      default: false
+    },
+    iconPosition:{
+      type: String,
+      default: 'left',
+      validator(value){  // 属性检查器，如果没有这个值，就会报错
+        // if(value !== 'left' && value !== 'right'){
+        //   return false
+        // }else{
+        //   return true
+        // }
+        // 简化代码
+        return value === 'left' || value === 'right'
       }
     }
+  }
 }
 </script>
 
