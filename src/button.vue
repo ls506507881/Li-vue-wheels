@@ -12,6 +12,7 @@
 <script >
 import Icon from './icon'
 export default {
+  name: 'GButton',
   components:{
     'g-icon': Icon
   },

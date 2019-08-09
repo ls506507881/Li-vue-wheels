@@ -4,7 +4,7 @@
   "description": "UI框架",
   "main": "dist/index.js",
   "scripts": {
-    "start":"npx parcel index.html --no-cache",
+    "start": "npx parcel index.html --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },
@@ -41,6 +41,7 @@
     "sass": "^1.22.9",
     "sinon": "^7.4.1",
     "sinon-chai": "^3.3.0",
+    "stylus": "^0.54.5",
     "vue-template-compiler": "^2.6.10"
   },
   "alias": {

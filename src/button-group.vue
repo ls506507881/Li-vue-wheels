@@ -6,6 +6,7 @@
 
 <script>
 export default{
+    name: 'GButtonGroup',
     mounted(){
         // console.log(this.$children)  // 打出所有子元素
         console.log(this.$el.children)
