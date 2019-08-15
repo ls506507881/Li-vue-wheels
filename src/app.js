@@ -36,10 +36,20 @@ new Vue({
     message: 'hi'
   },
   created(){
+    this.$toast('很多文字',{
+      enableHtml: false
+      // closeButton: {
+      //   text: '<strong>加粗文字</strong>',
+      //   callback(toast){
+      //     toast.log()
+      //     console.log('用户说他知道了')
+      //   }
+      // }
+    })
   },
   methods:{
     showToast(){
-      this.$toast('我是 message')
+      
     }
   }
 })
