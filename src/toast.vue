@@ -89,9 +89,7 @@ $toast-min-height: 40px;
 $toast-bg: rgba(0,0,0,0.75);
   .toast{
     position: fixed;
-    top: 0;
     left: 50%;
-    transform: translateX(-50%);
     font-size: $font-size;
     line-height: 1.8;
     min-height: $toast-min-height;
@@ -116,7 +114,15 @@ $toast-bg: rgba(0,0,0,0.75);
     }
     &.position-top{ 
       top: 0;
-      left: 50%;
+      transform: translateX(-50%);
+    }
+    &.position-bottom{ 
+      bottom: 0;
+      transform: translateX(-50%);
+    }
+    &.position-middle{ 
+      top: 50%;
+      transform: translate(-50%,-50%);
     }
   }
 </style>
