@@ -36,15 +36,17 @@ new Vue({
     message: 'hi'
   },
   created(){
-    this.$toast('很多文字',{
-      enableHtml: false
-      // closeButton: {
-      //   text: '<strong>加粗文字</strong>',
-      //   callback(toast){
-      //     toast.log()
-      //     console.log('用户说他知道了')
-      //   }
-      // }
+    this.$toast('你的智商需要充值！',{ 
+      // position: 'buttom', 
+      enableHtml: false,
+      closeButton: {
+        text: '已充值',
+        callback(){
+          console.log('他说已经充值智商了')
+        }
+      },
+      autoClose: false,
+      autoCloseDelay: 3
     })
   },
   methods:{
