@@ -68,6 +68,7 @@ export default {
     },
     close(){
       this.$el.remove()  // 把元素从body里面拿出来
+      this.$emit('close')
       this.$destroy()  // 组件销毁,绑定事件取消掉
     },
     log(){
