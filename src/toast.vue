@@ -21,7 +21,7 @@ export default {
       type: [Boolean,Number],
       default: 5,
       validator(value){
-        console.log(value)
+        // console.log(value)
         return value === false || typeof value === 'number'
       }
     },
@@ -46,6 +46,7 @@ export default {
     }
   },
   mounted(){
+    console.log(this.$el.outerHTML)
     this.updateStyles()
     this.execAutoClose()
   },
@@ -58,6 +59,8 @@ export default {
     updateStyles(){
       this.$nextTick(() => {  // mounted 下一次事件队列时再去改height（代替settimeout）
         // console.log(this.$refs.toast.getBoundingClientRect())
+        console.log(this.$refs)
+        console.log(this.$refs.line)
         this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`
       });  // tricky
     },
