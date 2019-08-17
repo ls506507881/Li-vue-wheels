@@ -1,15 +1,16 @@
 <template>
-  <div class="tabs-header">
+  <div class="tabs-head">
     <slot></slot>
+    <slot name="actions"></slot>
   </div>
 </template>
 <script>
 export default {
-  name: 'GTabsHeader'
+  name: 'GTabsHead'
 }
 </script>
 <style lang="scss">
-  .tabs-header{
+  .tabs-head{
 
   }
 </style>

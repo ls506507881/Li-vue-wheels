@@ -5,7 +5,13 @@
 </template>
 <script>
 export default {
-  name: 'GTabsItem'
+  name: 'GTabsItem',
+  props:{
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 <style lang="scss">
