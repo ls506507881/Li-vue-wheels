@@ -40,7 +40,7 @@
     <!-- selected.sync="selectedTab" 等价于 @update:selected="selectedTab = $event" -->
     <!-- <g-tabs selected.sync="selectedTab"></g-tabs>  // 完全等价于下面-->  
     <!-- <g-tabs selected="selectedTab" @update:selected="selectedTab = $event"></g-tabs> -->
-    <g-tabs :selected.sync="selectedTab">
+    <g-tabs :selected.sync="selectedTab" @update:selected="yyy">
       <g-tabs-head>
         <g-tabs-item name="woman">
           <template slot="actions">
