@@ -37,6 +37,19 @@ export default {
   // },
   mounted(){
     // this.$emit('update:selected','这是 this $emit 出来的数据')
+    // console.log(this.$children)
+    this.$children.forEach((vm)=>{
+      // console.log(vm.$options.name)
+      if(vm.$options.name==='GTabsHead'){
+        vm.$children.forEach((item)=>{
+          // console.log(item.$options.name) 
+          if(item.$options.name === 'GTabsItem' && item.name === this.selected){
+            console.log(item.$el)
+            this.eventBus.$emit('update:selected',this.selected,item)
+          }
+        })
+      }
+    })
     this.eventBus.$emit('update:selected',this.selected)
   }
 }
