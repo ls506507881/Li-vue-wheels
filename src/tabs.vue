@@ -41,11 +41,11 @@ export default {
     this.$children.forEach((vm)=>{
       // console.log(vm.$options.name)
       if(vm.$options.name==='GTabsHead'){
-        vm.$children.forEach((item)=>{
+        vm.$children.forEach((childVm)=>{
           // console.log(item.$options.name) 
-          if(item.$options.name === 'GTabsItem' && item.name === this.selected){
-            console.log(item.$el)
-            this.eventBus.$emit('update:selected',this.selected,item)
+          if(childVm.$options.name === 'GTabsItem' && childVm.name === this.selected){
+            console.log(childVm.$el)
+            this.eventBus.$emit('update:selected',this.selected,childVm)
           }
         })
       }
