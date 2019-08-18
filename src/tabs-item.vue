@@ -50,12 +50,12 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .tabs-item{
     flex-shrink: 0;
     padding: 0 1em;
     &.active{
-      
+      background: red;
     }
   }
 </style>
