@@ -7,6 +7,11 @@
 export default {
   name: 'GTabsItem',
   inject: ['eventBus'],  // 注入
+  data(){
+    return {
+      active: false
+    }
+  },
   props:{
     disabled: {
       type: Boolean,
@@ -33,6 +38,7 @@ export default {
 </script>
 <style lang="scss">
   .tabs-item{
-
+    flex-shrink: 0;
+    padding: 0 1em;
   }
 </style>
