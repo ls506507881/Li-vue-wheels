@@ -37,10 +37,14 @@
 
 <body>
 	<div id="app">
+    <g-tabs>
+      <div>hi</div>
+    </g-tabs>
+   
     <!-- selected.sync="selectedTab" 等价于 @update:selected="selectedTab = $event" -->
     <!-- <g-tabs selected.sync="selectedTab"></g-tabs>  // 完全等价于下面-->  
     <!-- <g-tabs selected="selectedTab" @update:selected="selectedTab = $event"></g-tabs> -->
-    <g-tabs :selected.sync="selectedTab" @update:selected="yyy">
+    <!-- <g-tabs :selected.sync="selectedTab" @update:selected="yyy">
       <g-tabs-head>
         <template slot="actions">
           <button>设置</button>
@@ -57,7 +61,7 @@
         <g-tabs-pane name="finance">财经相关资讯</g-tabs-pane>
         <g-tabs-pane name="sports">体育相关资讯</g-tabs-pane>
       </g-tabs-body>
-    </g-tabs>
+    </g-tabs> -->
 	</div>
 	<script src="./src/app.js"></script>
 	<!-- <script src="//at.alicdn.com/t/font_1335208_7sglagkyem.js"></script> -->

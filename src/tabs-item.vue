@@ -68,6 +68,7 @@ export default {
     }
     &.disabled {
       color: $disabled-text-color;
+      content: no-open-quote;
     }
   }
 </style>
