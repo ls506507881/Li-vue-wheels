@@ -44,7 +44,6 @@ describe('Tabs', () => {
             console.log(vm.$el.outerHTML)
             done()
         },1000)
-        })
     })
     // 放弃了这个测试
     // it('子组件只能是 tabs-head 和 tabs-body',()=>{
