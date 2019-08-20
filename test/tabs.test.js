@@ -20,11 +20,11 @@ describe('Tabs', () => {
         expect(Tabs).to.exist
     })
     // 测能测的 props
-    it('子组件只能是 tabs-head 和 tabs-body',(done)=>{
+    it('接受 selected 属性',(done)=>{
         const div = document.createElement('div')
         document.body.appendChild(div)
         div.innerHTML = `
-        <g-tabs :selected="finance">
+        <g-tabs selected="finance">
             <g-tabs-head>
                 <g-tabs-item name="woman">美女</g-tabs-item>
                 <g-tabs-item name="finance">财经</g-tabs-item>
@@ -40,10 +40,21 @@ describe('Tabs', () => {
         let vm = new Vue({
             el: div
         })
-        setTimeout(()=>{
-            console.log(vm.$el.outerHTML)
+        // setTimeout(()=>{
+            // console.log(vm.$el.outerHTML)
+            // done()
+        // },1000)
+        vm.$nextTick(()=>{
+            // console.log(vm.$el.outerHTML)
+            let x = vm.$el.querySelector(`.tabs-item[data-name="finance"]`)
+            // console.log(x.outerHTML)
+            expect(x.classList.contains('active')).to.be.true
             done()
-        },1000)
+        })
+    })
+
+    it('可以接受 direction prop',()=>{
+
     })
     // 放弃了这个测试
     // it('子组件只能是 tabs-head 和 tabs-body',()=>{

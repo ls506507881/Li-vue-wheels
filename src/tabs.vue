@@ -42,32 +42,24 @@ export default {
     // }
     // this.$emit('update:selected','这是 this $emit 出来的数据')
     // console.log(this.$children)
-    console.log(1)
     if(this.$children.length === 0){
       console && console.warn && console.warn('tabs的子组件应该是tabs-head和tabs-nav,但你没有写子组件')
     }
-    console.log(2)
     this.$children.forEach((vm)=>{
-      console.log(4)
       // console.log(vm.$options.name)
       if(vm.$options.name==='GTabsHead'){
-        console.log(5)
         vm.$children.forEach((childVm)=>{
-          console.log(6)
           // console.log(item.$options.name) 
-          console.log(childVm.$options.name)
-          console.log(childVm.name)
-          console.log(this.selected)
+          // console.log(childVm.$options.name)
+          // console.log(childVm.name)
+          // console.log(this.selected)
           if(childVm.$options.name === 'GTabsItem' && childVm.name === this.selected){
-            console.log(7)
             // console.log(childVm.$el)
             this.eventBus.$emit('update:selected',this.selected,childVm)
-            console.log('事件触发了')
           }
         })
       }
     })
-    console.log(3)
     // this.eventBus.$emit('update:selected',this.selected)
   }
 }
