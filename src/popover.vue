@@ -1,13 +1,21 @@
 <template>
-  <div class="popover">
-    <slot name="content"></slot>
+  <div class="popover" @click="xxx">
+    <slot name="content" v-if="visible"></slot>
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'GPopover'
+  name: 'GPopover',
+  data(){
+    return {visible: false}
+  },
+  methods: {
+    xxx () {
+      this.visible = !this.visible
+    }
+  }
 }
 </script>
 
