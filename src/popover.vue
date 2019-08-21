@@ -1,6 +1,8 @@
 <template>
   <div class="popover" @click="xxx">
-    <slot name="content" v-if="visible"></slot>
+    <div class="content-wrapper" v-if="visible">
+      <slot name="content"></slot>
+    </div>
     <slot></slot>
   </div>
 </template>
@@ -23,5 +25,9 @@ export default {
   .popover{
     display: inline-block;
     vertical-align: top;
+    position: relative;
+    .content-wrapper{
+      position: absolute;
+    }
   }
 </style>
