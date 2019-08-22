@@ -25,9 +25,7 @@ export default {
     listenToDocument(){
       let eventHandler = (e)=>{
         console.log(e.target)
-        if(this.$refs.contentWrapper.contains(e.target)){
-
-        }else{
+        if(!this.$refs.contentWrapper.contains(e.target)){
           this.visible = false
           document.removeEventListener('click', eventHandler)
           console.log('关闭')
@@ -35,18 +33,23 @@ export default {
       }
       document.addEventListener('click', eventHandler)
     },
+    onShow(){
+      // this.$nextTick(()=>{
+      //   this.positionContent()
+      //   this.listenToDocument()
+      // },100)
+      setTimeout(()=>{
+        this.positionContent()
+        this.listenToDocument()
+      },0)
+    },
     onClick (event) {
       console.log(event.target)
       if(this.$refs.triggerWrapper.contains(event.target)){
         console.log('下面')
         this.visible = !this.visible
-        if(this.visible){
-          setTimeout(()=>{
-            this.positionContent()
-            this.listenToDocument()
-          },100)
-        }else{
-
+        if(this.visible === true){
+          this.onShow()
         }
       }else{
         console.log('上面')
