@@ -16,6 +16,25 @@ export default {
     return {visible: false}
   },
   methods: {
+    positionContent(){
+      document.body.appendChild(this.$refs.contentWrapper)
+      let { width, height, top, left } = this.$refs.triggerWrapper.getBoundingClientRect()
+      this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+      this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
+    },
+    listenToDocument(){
+      let eventHandler = (e)=>{
+        console.log(e.target)
+        if(this.$refs.contentWrapper.contains(e.target)){
+
+        }else{
+          this.visible = false
+          document.removeEventListener('click', eventHandler)
+          console.log('关闭')
+        }
+      }
+      document.addEventListener('click', eventHandler)
+    },
     onClick (event) {
       console.log(event.target)
       if(this.$refs.triggerWrapper.contains(event.target)){
@@ -23,16 +42,8 @@ export default {
         this.visible = !this.visible
         if(this.visible){
           setTimeout(()=>{
-            document.body.appendChild(this.$refs.contentWrapper)
-            let { width, height, top, left } = this.$refs.triggerWrapper.getBoundingClientRect()
-            this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-            this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
-            let eventHandler = (e)=>{
-              console.log(e.target)
-              this.visible = false
-              document.removeEventListener('click', eventHandler)
-            }
-            document.addEventListener('click', eventHandler)
+            this.positionContent()
+            this.listenToDocument()
           },100)
         }else{
 
