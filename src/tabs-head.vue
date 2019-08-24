@@ -29,7 +29,6 @@ export default {
         this.$refs.line.style.left = `${left}px`
         // this.$refs.line.style.transform = `translateX(${left}px)`
       // })
-
     })
   }
 }
