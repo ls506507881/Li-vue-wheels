@@ -27,26 +27,41 @@ export default {
   },
   methods: {
     positionContent(){
+      let x = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height-height2)/2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height-height2)/2,
+          left: left + window.scrollX + width
+        }
+      }
       const { contentWrapper,triggerWrapper } = this.$refs
+      let {height: height2} = contentWrapper.getBoundingClientRect()
       document.body.appendChild(contentWrapper)
       
       let { width, height, top, left } = triggerWrapper.getBoundingClientRect()
       if(this.position === 'top'){
-        contentWrapper.style.left = left + window.scrollX + 'px'
-        contentWrapper.style.top = top + window.scrollY + 'px'
+        contentWrapper.style.left =  + 'px'
+        contentWrapper.style.top =  + 'px'
       }else if(this.position === 'bottom'){
-        contentWrapper.style.left = left + window.scrollX + 'px'
-        contentWrapper.style.top = top + height + window.scrollY + 'px'
+        contentWrapper.style.left =  + 'px'
+        contentWrapper.style.top =  + 'px'
       }else if(this.position === 'left'){
-        contentWrapper.style.left = left + window.scrollX + 'px'
-        let {height: height2} = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.top = top + window.scrollY + 
-          (height-height2)/2 + 'px'
+        contentWrapper.style.left =  + 'px'
+        contentWrapper.style.top =  + 'px'
       }else if(this.position === 'right'){
-        contentWrapper.style.left = left + window.scrollX + width + 'px'
-        let {height: height2} = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.top = top + window.scrollY + 
-          (height-height2)/2 + 'px'
+        contentWrapper.style.left =  + 'px'
+        contentWrapper.style.top =  + 'px'
       }
 
     },
