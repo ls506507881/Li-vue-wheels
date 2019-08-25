@@ -27,42 +27,19 @@ export default {
   },
   methods: {
     positionContent(){
-      let x = {
-        top: {
-          top: top + window.scrollY,
-          left: left + window.scrollX
-        },
-        bottom: {
-          top: top + height + window.scrollY,
-          left: left + window.scrollX
-        },
-        left: {
-          top: top + window.scrollY + (height-height2)/2,
-          left: left + window.scrollX
-        },
-        right: {
-          top: top + window.scrollY + (height-height2)/2,
-          left: left + window.scrollX + width
-        }
-      }
       const { contentWrapper,triggerWrapper } = this.$refs
-      let {height: height2} = contentWrapper.getBoundingClientRect()
       document.body.appendChild(contentWrapper)
-      
-      let { width, height, top, left } = triggerWrapper.getBoundingClientRect()
-      if(this.position === 'top'){
-        contentWrapper.style.left =  + 'px'
-        contentWrapper.style.top =  + 'px'
-      }else if(this.position === 'bottom'){
-        contentWrapper.style.left =  + 'px'
-        contentWrapper.style.top =  + 'px'
-      }else if(this.position === 'left'){
-        contentWrapper.style.left =  + 'px'
-        contentWrapper.style.top =  + 'px'
-      }else if(this.position === 'right'){
-        contentWrapper.style.left =  + 'px'
-        contentWrapper.style.top =  + 'px'
+      const { width, height, top, left } = triggerWrapper.getBoundingClientRect()
+      const {height: height2} = contentWrapper.getBoundingClientRect()
+
+      let positions = {
+        top: { top: top + window.scrollY, left: left + window.scrollX },
+        bottom: { top: top + height + window.scrollY, left: left + window.scrollX },
+        left: { top: top + window.scrollY + (height-height2)/2, left: left + window.scrollX },
+        right: { top: top + window.scrollY + (height-height2)/2, left: left + window.scrollX + width }
       }
+      contentWrapper.style.top = positions[this.position].top + 'px'
+      contentWrapper.style.left = positions[this.position].left + 'px'
 
     },
     onClickDocument (e){
