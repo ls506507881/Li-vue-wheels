@@ -37,4 +37,35 @@ const expect = chai.expect;
         //  vm.$destroy()
      })
 
+     xit('可以设置 trigger',(done)=>{
+      Vue.component('g-popover', Popover)
+      const div = document.createElement('div')
+      document.body.appendChild(div)
+      div.innerHTML = `
+        <g-popover trigger="hover" ref="a">
+          <template slot="content">
+            弹出内容
+          </template>
+          <button>点我</button>
+        </g-popover>
+      `
+      const vm = new Vue({
+        el: div
+      })
+      setTimeout(()=>{
+        let event = new Event('mouseenter')
+        vm.$el.dispatchEvent(event)
+        console.log('1111111111111')
+        vm.$nextTick(() => {
+          console.log('2222222222222')
+          const { contentWrapper } = vm.$refs.a.$refs
+          expect(contentWrapper).to.exist
+          done()
+          console.log('33333333333333')
+        })
+      },200)
+
+
+     })
+
  })
