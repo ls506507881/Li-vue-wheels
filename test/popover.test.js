@@ -32,9 +32,6 @@ const expect = chai.expect;
         expect(contentWrapper.classList.contains('position-bottom')).to.be.true
         done()
       })
-        //  const useElement = vm.$el.querySelector('use')
-        //  expect(useElement.getAttribute('xlink:href')).to.equal('#i-settings')
-        //  vm.$destroy()
      })
 
      xit('可以设置 trigger',(done)=>{
@@ -55,13 +52,10 @@ const expect = chai.expect;
       setTimeout(()=>{
         let event = new Event('mouseenter')
         vm.$el.dispatchEvent(event)
-        console.log('1111111111111')
         vm.$nextTick(() => {
-          console.log('2222222222222')
           const { contentWrapper } = vm.$refs.a.$refs
           expect(contentWrapper).to.exist
           done()
-          console.log('33333333333333')
         })
       },200)
 

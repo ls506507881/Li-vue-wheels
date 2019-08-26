@@ -95,14 +95,10 @@ export default {
         return
       }
       this.close()
-      console.log('关闭')
+      // console.log('关闭')
     },
     open(){
       this.visible = true
-      // this.$nextTick(()=>{
-      //   this.positionContent()
-      //   this.listenToDocument()
-      // },100)
       setTimeout(()=>{
         this.positionContent()
         document.addEventListener('click', this.onClickDocument)
@@ -114,7 +110,7 @@ export default {
     },
     onClick (event) {
       if(this.$refs.triggerWrapper.contains(event.target)){
-        console.log('下面')
+        // console.log('下面')
         if(this.visible === true){
           this.close()
         } else {
@@ -122,7 +118,7 @@ export default {
           // console.log('关闭')
         }
       }else{
-        console.log('上面')
+        // console.log('上面')
       }
     }
   }
