@@ -13,7 +13,7 @@
 import Button from '../../../src/button'
 export default {
   components:{
-    gButton: Button
+    'g-button': Button
   },
   data(){
     return{
