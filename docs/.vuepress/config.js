@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/li-vue-1/',
+  base: '/Li-vue-wheels/',
   title: 'Li-Vue UI',
   description: '一个正在完善的UI框架',
   themeConfig:{
