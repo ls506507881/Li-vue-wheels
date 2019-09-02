@@ -41,14 +41,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$font-size: 14px;
-$button-height: 32px;
-$button-bg: white;
-$button-active-bg: #eee;
-$border-radius: 4px;
-$color: #333;
-$color-color: #999;
-$border-color-hover: #666;
+// $font-size: 14px;
+// $button-height: 32px;
+// $button-bg: white;
+// $button-active-bg: #eee;
+// $border-radius: 4px;
+// $color: #333;
+// $border-color: #999;
+// $border-color-hover: #666;
 @keyframes spin{
   0%{
     transform: rotate(0deg);
@@ -58,19 +58,19 @@ $border-color-hover: #666;
   }
 }
 .g-button {
-    font-size: var(--font-size);
-    height: var(--button-height);
+    font-size: 14px;
+    height: 32px;
     padding: 0 1em;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    background: var(--button-bg);
+    border-radius: 4px;
+    border: 1px solid #999;
+    background: white;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     vertical-align: middle;
-    line-height: var(--font-size);
-    &:hover{ border-color: var(--border-color-hover);}
-    &:active{ background-color: var(--button-active-bg); }
+    line-height: 14px;
+    &:hover{ border-color: #666;}
+    &:active{ background-color:#eee; }
     &:focus{ outline: none; }
     > .icon{ order: 1; margin-right: .3em; }
     > .content{ order: 2; }
